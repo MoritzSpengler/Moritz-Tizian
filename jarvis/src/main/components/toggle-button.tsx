@@ -13,6 +13,7 @@ export function MeWeToggleButton() {
         <ToggleButtonGroup
             value={currentLandingPage}
             exclusive
+            color="primary"
         >
             <ToggleButton value={ME} component={Link} to="/" children={ME} sx={{ textTransform: 'none' }} />
             <ToggleButton value={WE} component={Link} to="/we" children={WE} sx={{ textTransform: 'none' }} />
