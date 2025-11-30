@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router'
-import { MeLandingPage } from './main/ME/MeLandingPage.tsx'
-import { WeLandingPage } from './main/WE/WeLandingPage.tsx'
+import { MeLandingPage } from './main/ME/pages/MeLandingPage.tsx'
+import { WeLandingPage } from './main/WE/pages/WeLandingPage.tsx'
 
 export function App() {
 
