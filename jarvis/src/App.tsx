@@ -1,12 +1,14 @@
 import './App.css'
+import { Routes, Route } from 'react-router'
+import { MeLandingPage } from './main/ME/MeLandingPage.tsx'
+import { WeLandingPage } from './main/WE/WeLandingPage.tsx'
 
-function App() {
+export function App() {
 
   return (
-    <div>
-      <h1>Jarvis</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<MeLandingPage />} />
+      <Route path="we" element={<WeLandingPage />} />
+    </Routes>
   )
 }
-
-export default App
