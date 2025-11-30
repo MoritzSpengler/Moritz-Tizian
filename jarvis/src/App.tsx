@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<MeLandingPage />} />
+      <Route index element={<MeLandingPage />} />
       <Route path="we" element={<WeLandingPage />} />
     </Routes>
   )

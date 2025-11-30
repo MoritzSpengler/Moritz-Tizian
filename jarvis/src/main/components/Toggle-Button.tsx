@@ -1,39 +1,21 @@
-import React from "react";
 import { ToggleButtonGroup, ToggleButton } from "@mui/material";
-import { useNavigate, useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 
 export function MeWeToggleButton() {
     const ME = 'Me';
     const WE = 'We';
     
-    const navigate = useNavigate();
-    const location = useLocation();
+    const location = useLocation(); // Hook to access the current route
 
-    const currentValue = location.pathname === '/we' ? WE : ME;
-
-    const handleAlignment = (
-        _event: React.MouseEvent<HTMLElement>,
-        newAlignment: string | null,
-    ) => {
-        if (newAlignment === null) {
-            return;
-        }
-
-        if (newAlignment === ME) {
-            navigate('/');
-        } else if (newAlignment === WE) {
-            navigate('/we');
-        }
-    };
+    const currentLandingPage = location.pathname === '/we' ? WE : ME;
 
     return (
         <ToggleButtonGroup
-            value={currentValue}
+            value={currentLandingPage}
             exclusive
-            onChange={handleAlignment}
         >
-            <ToggleButton value={ME}>{ME}</ToggleButton>
-            <ToggleButton value={WE}>{WE}</ToggleButton>
+            <ToggleButton value={ME} component={Link} to="/" children={ME} sx={{ textTransform: 'none' }} />
+            <ToggleButton value={WE} component={Link} to="/we" children={WE} sx={{ textTransform: 'none' }} />
         </ToggleButtonGroup>
     );
 }
