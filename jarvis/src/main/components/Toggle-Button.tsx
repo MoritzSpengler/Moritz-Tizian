@@ -35,5 +35,5 @@ export function MeWeToggleButton() {
             <ToggleButton value={ME}>{ME}</ToggleButton>
             <ToggleButton value={WE}>{WE}</ToggleButton>
         </ToggleButtonGroup>
-    )
+    );
 }
