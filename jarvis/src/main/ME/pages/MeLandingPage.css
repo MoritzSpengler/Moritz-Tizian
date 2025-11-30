@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+}
+.toggle-button-wrapper {
+    margin-left: auto;
+}
