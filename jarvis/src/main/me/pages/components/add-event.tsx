@@ -1,10 +1,11 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, IconButton, TextField } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, Fab, IconButton, TextField } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { Add } from "@mui/icons-material";
 import { useState } from "react";
 import { DatePicker, LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import type { Dayjs } from "dayjs";
+import { JButton } from "../../../components/default-button";
 
 interface AddEventProps {
     onSave: (title: string, date: Dayjs, startTime?: Dayjs, endTime?: Dayjs) => void;
@@ -46,7 +47,7 @@ export function AddEvent({ onSave }: AddEventProps) {
                 onClick={() => setOpen(true)} 
             />
             <Dialog open={open}>
-                <DialogTitle>Add Event</DialogTitle>
+                <DialogTitle children="Add New Event" sx={{ marginRight: '16px' }}/>
                 <IconButton
                     onClick={handleClose}
                     sx={(theme) => ({
@@ -89,9 +90,7 @@ export function AddEvent({ onSave }: AddEventProps) {
                     </LocalizationProvider>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleSave} color="primary">
-                        Save
-                    </Button>
+                    <JButton label='Save' color='primary' size='medium' onClick={handleSave} variant='text' />
                 </DialogActions>
             </Dialog>
         </>

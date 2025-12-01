@@ -1,3 +1,15 @@
-.header {
+.landingPageHeader {
+    margin-right: 32px;
+    flex-shrink: 0;
+}
+
+.we-landing-page-body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.button-container {
+    margin-top: auto;
 }
