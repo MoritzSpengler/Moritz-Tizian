@@ -1,12 +1,13 @@
 import './we-landing-page.css'
-import { MeWeToggleButton } from "../../components/toggle-button";
+import '../../global.css';
+import { WeLandingPageSidebar } from './components/we-landing-page-sidebar';
 
 
 export function WeLandingPage() {
     return (
         <div className="header">
-            <div>
-                <MeWeToggleButton />
+            <div className="landingPage">
+                <WeLandingPageSidebar />
             </div>
         </div>
     );

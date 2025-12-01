@@ -1,0 +1,9 @@
+.landingPageHeader {
+    margin-right: 32px;
+    flex-shrink: 0;
+}
+
+.calendarContainer {
+    flex: 1;
+    min-height: 0;
+}

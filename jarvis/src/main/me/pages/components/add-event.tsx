@@ -4,12 +4,38 @@ import { Add } from "@mui/icons-material";
 import { useState } from "react";
 import { DatePicker, LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import type { Dayjs } from "dayjs";
 
-export function AddEvent() {
+interface AddEventProps {
+    onSave: (title: string, date: Dayjs, startTime?: Dayjs, endTime?: Dayjs) => void;
+}
+
+export function AddEvent({ onSave }: AddEventProps) {
     const [open, setOpen] = useState(false);
+    const [title, setTitle] = useState('');
+    const [date, setDate] = useState<Dayjs | undefined>(undefined);
+    const [startTime, setStartTime] = useState<Dayjs | undefined>(undefined);
+    const [endTime, setEndTime] = useState<Dayjs | undefined>(undefined);
+
     const handleClose = () => {
         setOpen(false);
     }
+
+    const resetFields = () => {
+        setTitle('');
+        setDate(undefined);
+        setStartTime(undefined);
+        setEndTime(undefined);
+    };
+
+    const handleSave = () => {
+        if (title && date) {
+        onSave(title, date, startTime, endTime);
+        handleClose();
+        resetFields();
+        } 
+    };
+
 
     return (
         <>
@@ -33,19 +59,37 @@ export function AddEvent() {
                     <CloseIcon />
                 </IconButton>
                 <DialogContent dividers>
-                    <TextField label="Event Name" fullWidth margin="normal" />
+                    <TextField 
+                        label="Event Name" 
+                        fullWidth 
+                        margin="normal" 
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        />
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <div style={{ marginBottom: '8px'}}>
-                            <DatePicker label="Event Date" />
+                            <DatePicker 
+                                label="Event Date" 
+                                value={date}
+                                onChange={(newValue) => setDate(newValue || undefined)}
+                            />
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
-                            <TimePicker label="Start Time" />
-                            <TimePicker label="End Time" />
+                            <TimePicker 
+                                label="Start Time" 
+                                value={startTime}
+                                onChange={(newValue) => setStartTime(newValue || undefined)}
+                            />
+                            <TimePicker 
+                                label="End Time" 
+                                value={endTime}
+                                onChange={(newValue) => setEndTime(newValue || undefined)}
+                            />
                         </div>
                     </LocalizationProvider>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleSave} color="primary">
                         Save
                     </Button>
                 </DialogActions>
