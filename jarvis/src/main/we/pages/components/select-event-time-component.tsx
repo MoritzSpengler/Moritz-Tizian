@@ -95,7 +95,11 @@ export function SelectEventTimeComponent() {
                     )}
                 </DialogContent>
                 <DialogActions>
-                    <JButton label='Save' color='primary' size='medium' onClick={handleSave} variant='text' />
+                    { site === 1 ? (
+                        <JButton label='Next' color='primary' size='medium' onClick={handleSave} variant='text' />
+                    ) : (
+                        <JButton label='Save' color='primary' size='medium' onClick={handleSave} variant='text' />
+                    )}
                 </DialogActions>
             </Dialog>
         </>
