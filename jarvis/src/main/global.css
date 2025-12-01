@@ -1,6 +1,7 @@
-.header {
+.landingPage {
     display: flex;
-}
-.toggle-button-wrapper {
-    margin-left: auto;
+    flex-direction: row;
+    height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
 }
